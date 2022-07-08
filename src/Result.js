@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Result = () => {
   const state = useSelector(state => state)
@@ -27,6 +27,7 @@ const Result = () => {
       
       <form onSubmit={(onSubmit)}>
       <input className='mt-4 btn w-full max-w-xs text-white' type="submit" value="Submit" />
+      <Link to="/step2/step3/step4"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
       </form>
     </>
   )

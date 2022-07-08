@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { chooseEmail } from "./rootSlice";
 import { choosePassword } from "./rootSlice";
@@ -72,6 +72,8 @@ const Step2 = () => {
                         </div>
                         
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
+
+                        <Link to="/"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
                     </form>
       
     </>

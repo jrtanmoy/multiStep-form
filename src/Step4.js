@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { choosePhoneNumber, chooseAdress } from "./rootSlice";
 
 
@@ -63,6 +63,8 @@ const Step4 = () => {
 
 
         <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
+
+        <Link to="/step2/step3"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
       </form>
     </>
   );
