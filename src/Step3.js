@@ -8,9 +8,9 @@ import { chooseAge, chooseGender } from "./rootSlice";
 const Step3 = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const age = useSelector(state => state.firstName)
-  const gender = useSelector(state => state.lastName)
-  // const { register, handleSubmit } = useForm({ defaultValues: { base } })
+  const age = useSelector(state => state.age)
+  const gender = useSelector(state => state.gender)
+ 
   const { register, formState: { errors }, handleSubmit } = useForm({ defaultValues: { age, gender } });
 
   const onSubmit = (data) => {

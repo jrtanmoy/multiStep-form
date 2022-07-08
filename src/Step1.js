@@ -9,7 +9,7 @@ const Step1 = () => {
   const navigate = useNavigate()
   const firstName = useSelector(state => state.firstName)
   const lastName = useSelector(state => state.lastName)
-  // const { register, handleSubmit } = useForm({ defaultValues: { base } })
+ 
   const { register, formState: { errors }, handleSubmit } = useForm({ defaultValues: { firstName, lastName} });
 
   const onSubmit = (data) => {

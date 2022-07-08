@@ -9,6 +9,8 @@ const rootSlice = createSlice({
     password: "",
     age: "",
     gender: "",
+    phoneNumber: "",
+    adress: "",
     
   },
   reducers: {
@@ -18,11 +20,13 @@ const rootSlice = createSlice({
     choosePassword: (state, action) => { state.password = action.payload },
     chooseAge: (state, action) => { state.age = action.payload },
     chooseGender: (state, action) => { state.gender = action.payload },
-   
+    choosePhoneNumber: (state, action) => { state.phoneNumber = action.payload },
+    chooseAdress: (state, action) => { state.adress = action.payload },
+    
     
   }
 })
 
 export const reducer = rootSlice.reducer;
 
-export const {chooseFirstName, chooseLastName, chooseEmail, choosePassword, chooseAge, chooseGender } = rootSlice.actions
+export const {chooseFirstName, chooseLastName, chooseEmail, choosePassword, chooseAge, chooseGender,choosePhoneNumber, chooseAdress } = rootSlice.actions

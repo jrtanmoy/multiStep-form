@@ -10,7 +10,7 @@ const Step2 = () => {
   const navigate = useNavigate()
   const email = useSelector(state => state.email)
   const password = useSelector(state => state.password)
-  // const { register, handleSubmit } = useForm({ defaultValues: { base } })
+
   const { register, formState: { errors }, handleSubmit } = useForm({ defaultValues: { email, password} });
 
   const onSubmit = (data) => {
