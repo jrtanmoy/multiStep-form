@@ -41,14 +41,18 @@ const Step3 = () => {
             {errors.age?.type === 'required' && <span className="label-text-alt text-red-500">{errors.age.message}</span>}
           </label>
         </div>
-        <div>
-          <label htmlFor="gender">Gender:</label>
-          <select id="gender" {...register('gender')}>
+        <div className="form-control w-full max-w-xs">
+        <label htmlFor="gender" className="label">
+            <span className="label-text">Gender:</span>
+          </label>
+          
+          <select className="input input-bordered w-full max-w-xs" id="gender" {...register('gender')}>
             <option value="male">Male</option>
             <option value="female">Female</option>
+            <option value="female">Others</option>
           </select>
         </div>
-        <button>Next</button>
+        <input className='mt-4 btn w-full max-w-xs text-white' type="submit" value="Next" />
       </form>
     </>
   );

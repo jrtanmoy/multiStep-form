@@ -23,7 +23,7 @@ const Step1 = () => {
      <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Name</span>
+                                <span className="label-text">First Name</span>
                             </label>
                             <input
                                 type="text"
@@ -42,7 +42,7 @@ const Step1 = () => {
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Name</span>
+                                <span className="label-text">Last Name</span>
                             </label>
                             <input
                                 type="text"
