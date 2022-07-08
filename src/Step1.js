@@ -61,7 +61,7 @@ const Step1 = () => {
                         </div>
                       
                         
-                        <input className='btn w-full max-w-xs text-white' type="submit" value="Sign Up" />
+                        <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
                     </form>
       
     </>
