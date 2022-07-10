@@ -10,8 +10,8 @@ import Submit from "./Submit";
 
 function App() {
   return (
-    <div className="App">
-      <div className="bg-violet-400	p-10 rounded-xl">
+    <div className="App container mx-auto lg:w-4/12 md:w-9/12 w-10/12">
+      <div className=" bg-gray-200 shadow-2xl p-10 rounded-xl">
         <Routes>
           <Route path="/" element={<Step1 />} />
           <Route path="/step2" element={<Step2 />} />

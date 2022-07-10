@@ -10,7 +10,7 @@ const Step3 = () => {
   const navigate = useNavigate()
   const age = useSelector(state => state.age)
   const gender = useSelector(state => state.gender)
- 
+
   const { register, formState: { errors }, handleSubmit } = useForm({ defaultValues: { age, gender } });
 
   const onSubmit = (data) => {
@@ -22,7 +22,7 @@ const Step3 = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-control w-full max-w-xs">
+        <div className="mx-auto form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Age</span>
           </label>
@@ -41,20 +41,22 @@ const Step3 = () => {
             {errors.age?.type === 'required' && <span className="label-text-alt text-red-500">{errors.age.message}</span>}
           </label>
         </div>
-        <div className="form-control w-full max-w-xs">
-        <label htmlFor="gender" className="label">
+        <div className="mx-auto form-control w-full max-w-xs">
+          <label htmlFor="gender" className="label">
             <span className="label-text">Gender:</span>
           </label>
-          
+
           <select className="input input-bordered w-full max-w-xs" id="gender" {...register('gender')}>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="female">Others</option>
           </select>
         </div>
-        <input className='mt-4 btn w-full max-w-xs text-white' type="submit" value="Next" />
+        <div className="flex justify-center">
+          <input className='mt-4 btn w-full max-w-xs text-white' type="submit" value="Next" />
+        </div>
 
-        <Link to="/step2"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
+        <Link className="flex justify-center" to="/step2"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
       </form>
     </>
   );

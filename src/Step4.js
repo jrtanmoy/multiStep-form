@@ -22,7 +22,7 @@ const Step4 = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-control w-full max-w-xs">
+        <div className="mx-auto form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Phone</span>
           </label>
@@ -41,7 +41,7 @@ const Step4 = () => {
             {errors.phoneNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phoneNumber.message}</span>}
           </label>
         </div>
-        <div className="form-control w-full max-w-xs">
+        <div className="mx-auto form-control w-full max-w-xs">
           <label className="label">
             <span className="label-text">Adress</span>
           </label>
@@ -62,9 +62,11 @@ const Step4 = () => {
         </div>
 
 
-        <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
+        <div className="flex justify-center">
+          <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
+        </div>
 
-        <Link to="/step2/step3"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
+        <Link className="flex justify-center" to="/step2/step3"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
       </form>
     </>
   );

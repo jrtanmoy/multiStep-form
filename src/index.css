@@ -18,7 +18,7 @@ code {
     monospace;
 }
 
-#root {
+/* #root {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,4 +31,4 @@ div {
 
 label {
   margin-right: 5px;
-}
+} */

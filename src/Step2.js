@@ -22,7 +22,7 @@ const Step2 = () => {
   return (
     <>
      <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="form-control w-full max-w-xs">
+                        <div className="mx-auto form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
@@ -46,7 +46,7 @@ const Step2 = () => {
                                 {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-full max-w-xs">
+                        <div className="mx-auto form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
@@ -71,9 +71,13 @@ const Step2 = () => {
                             </label>
                         </div>
                         
+                        <div className='flex justify-center'>
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
-
-                        <Link to="/"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
+                        </div>
+                        
+                       
+                        <Link className="flex justify-center" to="/"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
+                        
                     </form>
       
     </>
