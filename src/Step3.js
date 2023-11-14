@@ -2,22 +2,26 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { chooseAge, chooseGender } from "./rootSlice";
-
+import { chooseAge, chooseGender, completeStep } from "./rootSlice";
 
 const Step3 = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const age = useSelector(state => state.age)
-  const gender = useSelector(state => state.gender)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const age = useSelector((state) => state.age);
+  const gender = useSelector((state) => state.gender);
 
-  const { register, formState: { errors }, handleSubmit } = useForm({ defaultValues: { age, gender } });
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ defaultValues: { age, gender } });
 
   const onSubmit = (data) => {
-    dispatch(chooseAge(data.age))
-    dispatch(chooseGender(data.gender))
-    navigate("./step4")
-  }
+    dispatch(chooseAge(data.age));
+    dispatch(chooseGender(data.gender));
+    dispatch(completeStep("step3"));
+    navigate("./step4");
+  };
 
   return (
     <>
@@ -33,12 +37,16 @@ const Step3 = () => {
             {...register("age", {
               required: {
                 value: true,
-                message: 'Your age is Required'
-              }
+                message: "Your age is Required",
+              },
             })}
           />
           <label className="label">
-            {errors.age?.type === 'required' && <span className="label-text-alt text-red-500">{errors.age.message}</span>}
+            {errors.age?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.age.message}
+              </span>
+            )}
           </label>
         </div>
         <div className="mx-auto form-control w-full max-w-xs">
@@ -46,17 +54,27 @@ const Step3 = () => {
             <span className="label-text">Gender:</span>
           </label>
 
-          <select className="input input-bordered w-full max-w-xs" id="gender" {...register('gender')}>
+          <select
+            className="input input-bordered w-full max-w-xs"
+            id="gender"
+            {...register("gender")}
+          >
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="female">Others</option>
           </select>
         </div>
         <div className="flex justify-center">
-          <input className='mt-4 btn w-full max-w-xs text-white' type="submit" value="Next" />
+          <input
+            className="mt-4 btn w-full max-w-xs text-white"
+            type="submit"
+            value="Next"
+          />
         </div>
 
-        <Link className="flex justify-center" to="/step2"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
+        <Link className="flex justify-center" to="/step2">
+          <button class="mt-2 btn w-full max-w-xs text-white">Back</button>
+        </Link>
       </form>
     </>
   );
