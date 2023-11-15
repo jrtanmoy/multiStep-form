@@ -2,22 +2,25 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { choosePhoneNumber, chooseAdress } from "./rootSlice";
-
+import { choosePhoneNumber, chooseAddress, completeStep } from "./rootSlice";
 
 const Step4 = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const phoneNumber = useSelector(state => state.phoneNumber)
-  const adress = useSelector(state => state.adress)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const phoneNumber = useSelector((state) => state.phoneNumber);
+  const address = useSelector((state) => state.address);
 
-  const { register, formState: { errors }, handleSubmit } = useForm({ defaultValues: { phoneNumber, adress } });
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ defaultValues: { phoneNumber, address } });
 
   const onSubmit = (data) => {
-    dispatch(choosePhoneNumber(data.phoneNumber))
-    dispatch(chooseAdress(data.adress))
-    navigate("./result")
-
+    dispatch(choosePhoneNumber(data.phoneNumber));
+    dispatch(chooseAddress(data.address));
+    dispatch(completeStep("step4"));
+    navigate("./result");
   };
   return (
     <>
@@ -33,40 +36,53 @@ const Step4 = () => {
             {...register("phoneNumber", {
               required: {
                 value: true,
-                message: 'Phone number is Required'
-              }
+                message: "Phone number is Required",
+              },
             })}
           />
           <label className="label">
-            {errors.phoneNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.phoneNumber.message}</span>}
+            {errors.phoneNumber?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.phoneNumber.message}
+              </span>
+            )}
           </label>
         </div>
         <div className="mx-auto form-control w-full max-w-xs">
           <label className="label">
-            <span className="label-text">Adress</span>
+            <span className="label-text">Address</span>
           </label>
           <input
             type="text"
-            placeholder="Adress"
+            placeholder="Address"
             className="input input-bordered w-full max-w-xs"
-            {...register("adress", {
+            {...register("address", {
               required: {
                 value: true,
-                message: 'Adress is Required'
-              }
+                message: "Address is Required",
+              },
             })}
           />
           <label className="label">
-            {errors.adress?.type === 'required' && <span className="label-text-alt text-red-500">{errors.adress.message}</span>}
+            {errors.address?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.address.message}
+              </span>
+            )}
           </label>
         </div>
 
-
         <div className="flex justify-center">
-          <input className='btn w-full max-w-xs text-white' type="submit" value="Next" />
+          <input
+            className="btn w-full max-w-xs text-white"
+            type="submit"
+            value="Next"
+          />
         </div>
 
-        <Link className="flex justify-center" to="/step2/step3"><button class="mt-2 btn w-full max-w-xs text-white">Back</button></Link>
+        <Link className="flex justify-center" to="/step2/step3">
+          <button class="mt-2 btn w-full max-w-xs text-white">Back</button>
+        </Link>
       </form>
     </>
   );
