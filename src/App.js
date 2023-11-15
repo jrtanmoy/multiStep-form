@@ -18,7 +18,7 @@ function App() {
             path="/"
             element={
               <>
-                <StepCounter step1Completed={true} />
+                <StepCounter />
                 <Step1 />
               </>
             }
@@ -27,7 +27,7 @@ function App() {
             path="/step2"
             element={
               <>
-                <StepCounter step2Completed={true} />
+                <StepCounter />
                 <Step2 />
               </>
             }
@@ -36,7 +36,7 @@ function App() {
             path="/step2/step3"
             element={
               <>
-                <StepCounter step3Completed={true} />
+                <StepCounter />
                 <Step3 />
               </>
             }
@@ -45,7 +45,7 @@ function App() {
             path="/step2/step3/step4"
             element={
               <>
-                <StepCounter step4Completed={true} />
+                <StepCounter />
                 <Step4 />
               </>
             }
